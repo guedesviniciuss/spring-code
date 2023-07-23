@@ -18,10 +18,8 @@ public class CustomerConfiguration {
         };
     }
 
-    //INICIALIZA O BEAN COM O NOME DA VARIAVEL NO SERVICO
     @Bean
     ICustomerRepository customerRepository() {
-        System.out.println("useFakeRepository = " + useFakeRepository);
-        return useFakeRepository ? new CustomerFakeRepository() : new CustomerRepository();
+        return new CustomerFakeRepository();
     }
 }

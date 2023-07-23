@@ -2,22 +2,32 @@ package com.example.demo.customer;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
+@Entity
+@Table
 public class Customer {
-    private final Long id;
+    @Id
+    private Long id;
 
     @NotBlank(message = "name must not be empty")
-    private final String name;
+    private String name;
 
     @NotBlank
     @Email(message = "email must not be empty")
-    private final String email;
+    private String email;
 
     @NotBlank(message = "password must not be empty")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private final String password;
+    private String password;
+
+    public Customer() {
+
+    }
 
     public Customer(Long id, String name, String email, String password) {
         this.id = id;

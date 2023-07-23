@@ -1,6 +1,5 @@
 package com.example.demo.customer;
 
-import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +24,6 @@ public class CustomerController {
 
     @GetMapping(path = "{customerId}")
     Customer getCustomer(@PathVariable("customerId") Long id) {
-        System.out.println("ENTROU!!!!" + id);
         return this.customerService.getCustomer(id);
     }
 
