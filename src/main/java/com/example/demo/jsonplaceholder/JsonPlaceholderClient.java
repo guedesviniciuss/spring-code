@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(value = "jsonplaceholder", url = "https://jsonplaceholder.typicode.com/")
+@FeignClient(value = "jsonplaceholder", url = "https://jsonplaceholder.typicode.com")
 public interface JsonPlaceholderClient {
-    @GetMapping("posts")
+    @GetMapping("/posts")
     List<Post> getPosts();
 
-    @GetMapping("post/{postId}")
-    Post getPost(@PathVariable("postId") Integer id);
+    @GetMapping("/posts/{postId}")
+    Post getPost(@PathVariable("postId") Integer postId);
 }
