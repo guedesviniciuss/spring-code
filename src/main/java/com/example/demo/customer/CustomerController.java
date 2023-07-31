@@ -1,5 +1,6 @@
 package com.example.demo.customer;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -8,14 +9,10 @@ import java.util.List;
 
 @RequestMapping(path = "api/v1/customers")
 @RestController
+@AllArgsConstructor
 public class CustomerController {
 
     private final CustomerService customerService;
-
-    @Autowired
-    public CustomerController(CustomerService customerService) {
-        this.customerService = customerService;
-    }
 
     @GetMapping
     List<Customer> getCustomers() {
